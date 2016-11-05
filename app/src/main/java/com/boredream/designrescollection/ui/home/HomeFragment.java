@@ -22,6 +22,11 @@ import com.boredream.designrescollection.entity.SearchInvestListResponse.Element
 
 import java.util.ArrayList;
 
+/**
+ * Created by 自辰 on 2016/11/5.
+ * email：zichen615@yeah.net
+ * 首页Fragment 实现了加载推荐标的及首页Banner接口.
+ */
 public class HomeFragment extends BaseFragment implements HomeContract.View {
 
     private View view;
@@ -43,7 +48,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
 
     private void initView() {
         presenter = new HomePresenter(this);
-        imageBannerPresent = new ImageBannerPresent(getContext(),view);
+        imageBannerPresent = new ImageBannerPresent(getContext(), view);
         new TitleBuilder(view).setTitleText(getString(R.string.tab1));
         srl = (SwipeRefreshLayout) view.findViewById(R.id.srl);
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
