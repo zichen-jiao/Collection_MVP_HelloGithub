@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 
 import com.boredream.bdcodehelper.adapter.LoadMoreAdapter;
 import com.boredream.bdcodehelper.present.ImageBannerPresent;
+import com.boredream.bdcodehelper.utils.DisplayUtils;
 import com.boredream.bdcodehelper.utils.TitleBuilder;
+import com.boredream.bdcodehelper.view.GridSpacingDecorator;
 import com.boredream.designrescollection.R;
 import com.boredream.designrescollection.adapter.DesignResAdapter;
 import com.boredream.designrescollection.base.BaseFragment;
@@ -60,7 +62,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         });
 
         rv = (RecyclerView) view.findViewById(R.id.rv);
-//        rv.addItemDecoration(new GridSpacingDecorator(DisplayUtils.dp2px(activity, 2)));
+        rv.addItemDecoration(new GridSpacingDecorator(DisplayUtils.dp2px(activity, 2)));
         LinearLayoutManager gridLayoutManager = new LinearLayoutManager(activity);
         rv.setLayoutManager(gridLayoutManager);
 
@@ -127,6 +129,8 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     @Override
     public void loadBannerSuccess(GetBannerListResponse datas) {
         imageBannerPresent.load(datas.getBannerList());
+
         imageBannerPresent.disableClick();
+
     }
 }
